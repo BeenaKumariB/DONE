@@ -5,7 +5,7 @@ pipeline {
 
             steps {
                 withMaven(maven : 'apache-maven-3.6.1') {
-                    bat 'mvn clean compile'
+                    bat 'mvn -f Fuze/pom.xml clean compile'
                 }
             }
         }
@@ -13,14 +13,14 @@ pipeline {
 
             steps {
                 withMaven(maven : 'apache-maven-3.6.1') {
-                    bat 'mvn test'
+                    bat 'mvn Fuze/pom.xml test'
                 }
             }
         }
         stage ('Install Stage') {
             steps {
                 withMaven(maven : 'apache-maven-3.6.1') {
-                    bat 'mvn install'
+                    bat 'mvn Fuze/pom.xml install'
                 }
             }
         }
